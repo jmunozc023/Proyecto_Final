@@ -1,6 +1,7 @@
 package proyecto_final1;
 
 import java.util.Date;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -10,23 +11,28 @@ import java.util.Scanner;
 // Clase para generar el objeto Servicio con sus Getter y Setter
 public class Servicio{
     Scanner scanner = new Scanner(System.in);
-    private int IdServicio;
+    private String IdServicio;
     private Date fechaServicio;
     private String observaciones;
     private String instrucciones;
 
-    public Servicio(Date fechaServicio, String observaciones, String instrucciones, int IdServicio) {
+    public Servicio(Date fechaServicio, String observaciones, String instrucciones, String IdServicio) {
         this.IdServicio = IdServicio;
         this.fechaServicio = fechaServicio;
         this.observaciones = observaciones;
         this.instrucciones = instrucciones;
     }
+    private void generarNumeroServicio(){
+        Random random = new Random();
+        long timestamp = System.currentTimeMillis();
+        this.IdServicio = String.format("%020d", timestamp+random.nextInt(1000));
+    }
 
-    public int getIdServicio() {
+    public String getIdServicio() {
         return IdServicio;
     }
 
-    public void setIdServicio(int IdServicio) {
+    public void setIdServicio(String IdServicio) {
         this.IdServicio = IdServicio;
     }
 
@@ -57,16 +63,16 @@ public class Servicio{
     Nota: Estoy evaluando si esta funcion deberia de ir aca o en la clase de Servicio*/
     public Servicio crearServicio() {
         Date fecha = new Date();
-        System.out.println("Indique el Id del servicio: ");
+        /*System.out.println("Indique el Id del servicio: ");
         int id = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine();*/
         System.out.println("Ingrese las observaciones: ");
         String observaciones = scanner.nextLine();
         System.out.println("Ingrese las instrucciones del servicio: ");
         String instrucciones = scanner.nextLine();
-        Servicio servicio = new Servicio(fecha, observaciones, instrucciones, id);
+        Servicio servicio = new Servicio(fecha, observaciones, instrucciones, IdServicio);
         servicio.setFechaServicio(fecha);
-        servicio.setIdServicio(id);
+        servicio.setIdServicio(IdServicio);
         servicio.setObservaciones(observaciones);
         servicio.setInstrucciones(instrucciones);
 

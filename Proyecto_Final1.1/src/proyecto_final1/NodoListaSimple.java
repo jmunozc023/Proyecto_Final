@@ -16,6 +16,7 @@ public class NodoListaSimple {
     private NodoListaSimple siguiente;
 
     public NodoListaSimple() {
+        siguiente= null;
     }
 
     public Ruta getRuta() {

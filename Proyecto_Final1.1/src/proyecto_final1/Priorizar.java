@@ -185,6 +185,29 @@ public class Priorizar {
             }
         } while (intercambio);
     }
+    public void ordenarPorNombreDeMensajero() {
+        NodoListaDoble actual, siguiente;
+        boolean intercambio;
+
+        do {
+            actual = getPrimero();
+            intercambio = false;
+
+            while (actual != null && actual.getSiguiente() != null) {
+                siguiente = actual.getSiguiente();
+
+                if (actual.getObjetoGestor().getMensajero()!= null
+                        && siguiente.getObjetoGestor().getMensajero()!= null
+                        && actual.getObjetoGestor().getMensajero().getNombreCompleto().compareTo(siguiente.getObjetoGestor().getMensajero().getNombreCompleto()) > 0) {
+
+                    intercambiar(actual, siguiente);
+                    intercambio = true;
+                }
+
+                actual = siguiente;
+            }
+        } while (intercambio);
+    }
 
     private void intercambiar(NodoListaDoble nodo1, NodoListaDoble nodo2) {
         ObjetoGestor aux = nodo1.getObjetoGestor();

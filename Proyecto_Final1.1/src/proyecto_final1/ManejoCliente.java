@@ -142,6 +142,7 @@ public class ManejoCliente {
                     System.out.println("7. Salir");
                     System.out.println("Seleccione una opcion: ");
                     int opcion = scanner.nextInt();
+                    scanner.nextLine();
                     switch (opcion) {
                         case 1:
                             System.out.println("Ingrese el nuevo nombre: ");

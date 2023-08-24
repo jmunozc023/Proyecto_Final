@@ -63,7 +63,6 @@ public class ManejoRutas {
         nodoNuevo.setRuta(ruta);
         if (getPrimero() == null) {
             setPrimero(nodoNuevo);
-            getPrimero().setSiguiente(nodoNuevo);
             setUltimo(getPrimero());
         } else {
             getUltimo().setSiguiente(nodoNuevo);
